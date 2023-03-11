@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+}
+
+.main-container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    background: black;
+}
+
+.main-container .image-container {
+    /*flex: 1;*/
+    background: red;
+    height: 100%;
+
+    position: fixed;
+    width: 100%;
+}
+
+.main-container h1  {
+    flex: 1;
+    color: white;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 40px;
+    letter-spacing: 10px;
+    z-index: 100;
+    text-shadow: 2px 16px 16px rgb(0, 0, 0, 0.3);
+    text-decoration: none;
+}
+
+.main-container h1 a {
+    text-decoration: none;
+    color: white;
+
+}
+
+

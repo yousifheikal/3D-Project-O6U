@@ -1,0 +1,40 @@
+//
+//if (isset($_POST['submit'])) {
+//
+//    $pass = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_NUMBER_INT);
+//
+//    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+//
+//    if (checkEmpty($pass) && checkEmpty($email))
+//        if (ValidateEmail($email)) {
+//            $sql = sprintf("SELECT * FROM admins
+//                                       WHERE admin_email='%s'",
+//                $mysqli->real_escape_string($_POST["email"]));
+//            $result = $mysqli->query($sql);
+//            $user = $result->fetch_assoc();
+//            if ($user) {
+//                if (password_verify($_POST['password'], $user['admin_password'])) {
+//                    $_SESSION['admin_name'] = $user['admin_name'];
+//                    sleep(1.5);
+//                    header("location: http://localhost/jo/medical/admin/");
+//                } else {
+//                    $not_exist_email = 'Failed E-mail or password please try again ';
+//                }
+//            } else {
+//                $not_exist_email = 'Sorry this E-mail not exists ';
+//            }
+//        } else {
+//            $not_exist_email = 'Sorry this E-mail not exists ';
+//        }
+//    else {
+//        if (!checkEmpty($pass)) {
+//            $error_msg_pass = 'Please fill Password ';
+//        }
+//
+//        if (!checkEmpty($email)) {
+//            $error_msg_email = 'Please fill E-mail ';
+//        }
+//        $error_msg = "Please fill all fields";
+//    }
+//}
+//?>

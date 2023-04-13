@@ -1,0 +1,116 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /*font-family: 'Cairo', sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Poppins', sans-serif;*/
+}
+
+
+.landing .box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.landing .title  {
+    text-align: center;
+    padding-bottom: 70px;
+}
+.landing .title p {
+    margin: auto;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+}
+
+.landing .title p::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background: linear-gradient(#ff8008,#fff);
+    top: -15px;
+    left: 0;
+    z-index: -1;
+    /*transform: rotate(10deg);*/
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+.landing .content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 30px;
+
+}
+
+.landing .box .card {
+    transition: 0.5s ease;
+}
+
+.landing .box .card:hover {
+    transform: scale(1.1);
+}
+
+
+
+.honey {
+    margin-top: -50px;
+    padding-top: 70px;
+    padding-bottom: 100px;
+    /*background: #edf1fd;*/
+}
+
+.honey .box {
+    display: flex;
+}
+
+.honey .content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.honey .left-box {
+    flex-basis: 42%;
+}
+
+.honey .right-box {
+    flex-basis: 55%;
+    padding-left: 100px;
+}
+
+.honey .left-box .number {
+    font-size: 30px;
+    color: cadetblue;
+    font-weight: 700;
+    letter-spacing: 10px;
+}
+
+.honey .left-box h1 {
+    color: #172940;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.honey .left-box p {
+    font-size: 14px ;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #172940;
+    padding-bottom: 5px;
+}
+
+.honey .left-box button {
+    background-color: #f1750a ;
+    color :white ;
+
+}

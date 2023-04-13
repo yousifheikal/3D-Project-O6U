@@ -4,6 +4,11 @@
     <file url="file://$PROJECT_DIR$/Admin/AddDoctor.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/Admin/AddStudent.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/Admin/ViewStudent.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/homepage/homepage.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/login/login.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/publishProject/publish.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/uploadProject/upload.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/viewproject/display.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/viewproject/view.php" dialect="GenericSQL" />
   </component>
 </project>

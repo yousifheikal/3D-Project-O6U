@@ -71,6 +71,8 @@ if (isset($_POST['submit']))
             if ($doctor) {
                 if (password_verify($password, $doctor['dr_password'])) {
                     $_SESSION['dr_email'] = $doctor['dr_email'];
+                    $_SESSION['dr_Firstname'] = $doctor['dr_Firstname'];
+                    $_SESSION['dr_Lastname'] = $doctor['dr_Lastname'];
                     $_SESSION['dr_name'] = $doctor['dr_Firstname'].$doctor['dr_Lastname'];
                     $_SESSION['dr_id'] = $doctor['dr_id'];
                     sleep(1.2);
@@ -86,6 +88,8 @@ if (isset($_POST['submit']))
                 if (password_verify($password, $student['std_password'])) {
                     $_SESSION['std_id'] = $student['std_id'];
                     $_SESSION['std_email'] = $student['std_email'];
+                    $_SESSION['std_Firstname'] = $student['std_Firstname'];
+                    $_SESSION['std_Lastname'] = $student['std_Lastname'];
                     $_SESSION['std_name'] = $student['std_Firstname'].$student['std_Lastname'];
                     sleep(1.2);
                     header("location: ".homepage."?id=".$_SESSION['std_id']."&student=".$_SESSION['std_name']);

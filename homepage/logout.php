@@ -1,5 +1,6 @@
 <?php
 require_once "../config.php";
-session_unset();
+$_SESSION = array();
 session_destroy();
+sleep(1.5);
 header("location: ".login);

@@ -1,0 +1,270 @@
+:root {
+    --color: #054978f2;
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto",sans-serif;
+    height: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul {
+    list-style: none;
+}
+
+/*Start navbar*/
+.navbar {
+    background-color: var(--color);
+}
+
+.navbar .navbar-nav .nav-item {
+    padding-right: 15px;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: white;
+    margin-left: 35px;
+}
+
+
+.header .content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.header .left-box {
+    flex-basis: 70%;
+}
+
+.header .right-box {
+    flex-basis: 30%;
+    padding-left: 55px;
+    padding-top: 55px;
+
+}
+
+/*.header .right-box:hover{*/
+/*    color: orange;*/
+/*    transition: 1s;*/
+/*    !*transform: scale(140%);*!*/
+/*    scale: 110%;*/
+/*}*/
+
+
+.headerSocial{
+    float: left;
+}
+
+.Social_Links {
+    bottom: auto;
+    background-color: #063c61;
+    display: inline-block;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 30px;
+    float: left;
+    color: #fff;
+    text-decoration: none;
+    margin: 1px 1px;
+    padding-top: 8px;
+}
+.Social_Links:hover{
+    color: #ff8008;
+    transition: 1s;
+    /*transform: scale(140%);*/
+    transform: rotate(30deg);
+    scale: 110%;
+}
+
+.logout a{
+    text-decoration: none;
+    bottom: auto;
+    background-color: #063c61;
+    display: inline-block;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 85px;
+    float: left;
+    color: #fff;
+    text-decoration: none;
+    margin: 1px 2px 1px 35px;
+    /*padding-top: 8px;*/
+}
+
+.logout a:hover{
+    color: #ff8008;
+    transition: 1s;
+    scale: 120%;
+}
+
+
+.dark i{
+    /*font-size: 50px;*/
+    text-decoration: none;
+    bottom: auto;
+    background-color: #063c61;
+    display: inline-block;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 20px;
+    float: left;
+    color: #fff;
+    margin: 1px 1px;
+    /*transform: translate(-50%, -50%);*/
+}
+
+.dark i:hover {
+    color: #ff8008;
+    transition: 1s;
+    /*transform: scale(140%);*/
+    scale: 120%;
+}
+
+/*Start Projects*/
+.landing .box {
+    display: flex;
+}
+
+.landing .title  {
+    text-align: center;
+    padding-bottom: 70px;
+}
+.landing .title p {
+    margin: auto;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+}
+
+.landing .title p::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background: linear-gradient(#ff8008,#fff);
+    top: -15px;
+    left: 0;
+    z-index: -1;
+    /*transform: rotate(10deg);*/
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+.landing .content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.landing .box .card {
+    transition: 0.5s ease;
+}
+
+.landing .box .card:hover {
+    transform: scale(1.1);
+}
+
+.landing .box .left-box {
+    flex-basis: 30%;
+    padding-right: 110px;
+}
+
+.landing .box .left-box h1 {
+    font-size: 48px;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.landing .box .left-box p {
+    font-size: 16px;
+    color: rgb(59, 59, 59);
+    font-family: "Roboto",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-bottom: 20px;
+}
+
+.landing .box .left-box button {
+    background-color: orange;
+    color:white ;
+}
+
+.landing .box .left-box .logs {
+    padding-top: 30px;
+}
+
+
+
+/*.landing .box .medium-box {*/
+/*    flex-basis: 30%;*/
+/*    padding-right: 110px;*/
+
+/*}*/
+
+/*.landing .box .right-box {*/
+/*    flex-basis: 30%;*/
+/*    padding-right: 110px;*/
+
+/*}*/
+
+/*.landing .box .right-box img {*/
+/*    width: 100%;*/
+/*}*/
+/*End Projects*/
+
+
+/* Style the search field */
+
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    /*width: 80%;*/
+    background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+    float: left;
+    height: 40px;
+    /*width: 20%;*/
+    padding: 10px;
+    background: #ff9100;
+    color: white;
+    font-size: 17px;
+    border: 1px solid #0b7dda;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+
+
+/* Clear floats */
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}

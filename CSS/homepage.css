@@ -79,6 +79,7 @@ body {
     align-items: center;
     justify-content: space-around;
 }
+
 .honey .left-box {
     flex-basis: 42%;
 }
@@ -99,13 +100,14 @@ body {
     color: #172940;
     letter-spacing: 1px;
     font-weight: 800;
+    padding-bottom: 15px;
 }
 
 .honey .left-box p {
     font-size: 14px ;
     letter-spacing: 1px;
     font-weight: 500;
-    color: #172940;
+    /*color: #172940;*/
     padding-bottom: 5px;
 }
 
@@ -114,3 +116,84 @@ body {
     color :white ;
 
 }
+
+.honey .right-box  .specialist img{
+    padding-right: 10px;
+}
+
+/* Start Footer */
+
+.footer {
+    padding: 100px 0;
+    /*background-color: #efefef;*/
+    color: #013f7e;
+}
+
+.footer .conct {
+    text-align: center;
+    padding-bottom: 70px;
+}
+
+/*.footer .conct p{*/
+/*    margin: auto;*/
+/*    font-size: 20px;*/
+/*    color: black;*/
+/*    font-weight: bold;*/
+/*    position: relative;*/
+/*    z-index: 1;*/
+/*    display: inline-block;*/
+/*}*/
+
+/*.footer .conct p::after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    width: 50px;*/
+/*    height: 35px;*/
+/*    background: linear-gradient(#ce5f1fe7,#fff);*/
+/*    top: -20px;*/
+/*    left: 0;*/
+/*    z-index: -1;*/
+/*    transform: rotate(10deg);*/
+/*    border-top-left-radius: 35px;*/
+/*    border-bottom-right-radius: 35px;*/
+/*}*/
+
+.footer img {
+    width: 150px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.footer h1 {
+    font-size: 15px;
+    text-align: left;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.footer a {
+    font-size: 17px;
+    text-align: left;
+    text-decoration: none;
+    color: #013f7e;
+}
+
+.footer a:hover{
+    color: #ff8008;
+}
+
+.footer hr {
+    margin-top: 10px;
+}
+
+.footer .fa-heart {
+    color: #ce5f1fe7;
+    font-size: 17px;
+}
+
+.footer i {
+    color:#ce5f1fe7 ;
+}
+
+
+/* End Footer */

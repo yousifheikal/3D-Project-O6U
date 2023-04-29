@@ -1,5 +1,7 @@
 <?php
 require_once "../config.php";
+//require_once  "../".functions."Validate.php";
+//$mysqli = require_once "../".functions.'db.php';
 if(isset($_SESSION['std_email']) || isset($_SESSION['dr_email']) || isset($_SESSION['visitor']))
 {
 
@@ -16,21 +18,20 @@ else
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-
-    <script src="../Dark-Mode/script.js" defer></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-
     <!--    CSS Link-->
     <link rel="stylesheet" href="../CSS/nav.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Dashboard | Home Page</title>
+
+    <script src="../Dark-Mode/dark.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+<!--    <title>Dashboard | Home Page</title>-->
 </head>
 
 <body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <div class="header" id="home">
     <div class="container">
         <div class="box">
@@ -61,8 +62,7 @@ else
         </div>
     </div>
 </div>
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script><nav class="navbar navbar-expand-lg sticky-top" style="margin-bottom: 50px;">
+<nav class="navbar navbar-expand-lg sticky-top" style="margin-bottom: 50px;">
 <!--    Start Navbar-->
     <div class="container">
         <a class="navbar-brand" href="#home">
@@ -90,7 +90,8 @@ else
                             View
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="<?php echo email_student."ViewStudent.php"?>">View email for student</a></li>
+                            <li><a class="dropdown-item" href="<?php echo email_student."ViewStudent.php"?>">E-mail for student</a></li>
+                            <li><a class="dropdown-item" href="<?php echo Visitor?>">Visitor</a></li>
                             <li><a class="dropdown-item" href="<?php echo publish?>">projects</a></li>
                         </ul>
                     </li>
@@ -121,9 +122,30 @@ else
                 <?php }?>
 
             </ul>
-            <form class="example" action="">
+            <?php
+            $username = 'root';
+            $pass = '';
+
+            $database = new PDO("mysql:host=localhost; dbname=gallery_system;", $username, $pass);
+
+            if (isset($_GET['btn-search']))
+            {
+                $search = $database->prepare("SELECT * FROM publish_project WHERE  description LIKE :value OR dr_name LIKE  :value");
+                $search_value = "%".$_GET['search']."%";
+                $search->bindParam("value", $search_value);
+                $search->execute();
+                foreach ($search as $data)
+                {
+                    $_SESSION['search'] = $data['dr_name'];
+//                    $_SESSION['description-search'] = $data['description'];
+                    //        echo $data['dr_name'];
+                }
+            }
+
+            ?>
+            <form class="example" action="" method="get">
                 <input type="text" placeholder="Search.." name="search" style="width: 300px; height: 40px;border-radius: 3px;">
-                <button type="submit"><i class="fa fa-search"></i></button>
+                <button type="submit" name="btn-search"><i class="fa fa-search"></i></button></a>
             </form>
 <!--            <form class="d-flex" role="search">-->
 <!--                <input class="form-control me-2" type="search" style="width: 350px"-->

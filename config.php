@@ -16,6 +16,8 @@ const email_student = "http://localhost/jo/3d/Admin/";
 
 const publish = "http://localhost/jo/3d/publishProject/publish.php";
 
+const Visitor = "http://localhost/jo/3d/Admin/ViewVisitor.php";
+
 const viewProjects = "http://localhost/jo/3d/viewproject/view.php";
 
 const displayProjects = "http://localhost/jo/3d/viewproject/display.php";

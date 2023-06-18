@@ -4,7 +4,7 @@ require_once "../config.php";
 require_once  "../".functions."Validate.php";
 $mysqli = require_once "../".functions.'db.php';
 
-if(isset($_SESSION['std_email']) || isset($_SESSION['dr_email']) || isset($_SESSION['visitor']))
+if(isset($_SESSION['email_admin']) || isset($_SESSION['std_email']) || isset($_SESSION['dr_email']) || isset($_SESSION['visitor']))
 {
     //include Navbar
     include "../".navbar;
@@ -35,15 +35,7 @@ else
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>معرض - كلية الفنون التطبيقية</title>
 </head>
-<style>
-    .honey {
-        /*background-image: url("../images/o6u.jpg");*/
-        /*background-color: red;*/
-        /*opacity 0.1;*/
-        /*visibility: revert;*/
 
-    }
-</style>
 <body>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script><?php require_once "../".navbar;?>
@@ -64,7 +56,7 @@ else
                     <h3 style="padding-left: 5px;">Click her to see all projects <?php echo ucfirst($_SESSION['std_Firstname']);?></h3>
                     <?php }?>
                     <?php if (isset($_SESSION['dr_name'])){?>
-                        <h4 style="padding-left: 5px;">Click her to see all projects <?php echo "Dr: ".ucfirst($_SESSION['dr_Firstname'])?></h4>
+                        <h4 style="padding-left: 5px;">Click her to see all projects <?php echo "Dr: ".ucfirst($_SESSION['dr_name'])?></h4>
                     <?php }?>
                     <div style="padding-left: 150px">
                     <a href="#project" style="text-decoration: none">

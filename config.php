@@ -14,6 +14,8 @@ const home = "http://localhost/jo/3d/homepage/homepage.php?id=";
 
 const email_student = "http://localhost/jo/3d/Admin/";
 
+const signUp = "http://localhost/jo/3d/Admin/AddStudent.php";
+
 const publish = "http://localhost/jo/3d/publishProject/publish.php";
 
 const Visitor = "http://localhost/jo/3d/Admin/ViewVisitor.php";

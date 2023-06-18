@@ -2,7 +2,7 @@
 require_once "../config.php";
 //require_once  "../".functions."Validate.php";
 //$mysqli = require_once "../".functions.'db.php';
-if(isset($_SESSION['std_email']) || isset($_SESSION['dr_email']) || isset($_SESSION['visitor']))
+if(isset($_SESSION['email_admin']) || isset($_SESSION['std_email']) || isset($_SESSION['dr_email']) || isset($_SESSION['visitor']))
 {
 
 }
@@ -73,7 +73,7 @@ else
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <?php if (isset($_SESSION['std_email']) || isset($_SESSION['dr_email'])){?>
+                <?php if (isset($_SESSION['email_admin']) ||isset($_SESSION['std_email']) || isset($_SESSION['dr_email'])){?>
                 <li class="nav-item">
                     <a style="color: #ddd0d0f7" class="nav-link"
                        href="../">Home</a>
@@ -85,18 +85,23 @@ else
                 </li>
                 <?php }?>
                 <?php if (isset($_SESSION['dr_email'])){?>
+                    <li class="nav-item">
+                        <a style="color: #ddd0d0f7" class="nav-link" href="<?php echo publish?>">Publish Project</a>
+                    </li>
+                <?php }?>
+                <?php if (isset($_SESSION['email_admin'])){?>
                     <li class="nav-item dropdown">
                         <a style="color: #ddd0d0f7" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             View
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="<?php echo email_student."ViewStudent.php"?>">E-mail for student</a></li>
+                            <li><a class="dropdown-item" href="<?php echo email_student."ViewSignup.php"?>">Accept Students</a></li>
+                            <li><a class="dropdown-item" href="<?php echo email_student."ViewStudent.php"?>">Show All Students</a></li>
                             <li><a class="dropdown-item" href="<?php echo Visitor?>">Visitor</a></li>
-                            <li><a class="dropdown-item" href="<?php echo publish?>">projects</a></li>
                         </ul>
                     </li>
                 <?php }?>
-                <?php if (isset($_SESSION['std_email']) || isset($_SESSION['dr_email']) || isset($_SESSION['visitor'])){?>
+                <?php if (isset($_SESSION['email_admin']) || isset($_SESSION['std_email']) || isset($_SESSION['dr_email']) || isset($_SESSION['visitor'])){?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" style="color: #ddd0d0f7" data-bs-toggle="dropdown" aria-expanded="false">
                         View Projects
@@ -109,14 +114,15 @@ else
                     </ul>
                 </li>
                 <?php }?>
-                <?php if (isset($_SESSION['dr_email'])){?>
+                <?php if (isset($_SESSION['email_admin'])){?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" style="color: #ddd0d0f7" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Create E-mail
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="<?php echo email_student."AddStudent.php"?>">Create new email for Student</a></li>
+<!--                            <li><a class="dropdown-item" href="--><?php //echo email_student."AddStudent.php"?><!--">Create new email for Student</a></li>-->
                             <li><a class="dropdown-item" href="<?php echo email_student."AddDoctor.php"?>">Create new email for Doctor</a></li>
+<!--                            <li><a class="dropdown-item" href="--><?php //echo email_student."addadmins.php"?><!--">Create new email for admin</a></li>-->
                         </ul>
                     </li>
                 <?php }?>

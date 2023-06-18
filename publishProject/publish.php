@@ -46,7 +46,7 @@ if (isset($_GET['id']) && isset($_GET['project_name']))
     <title>عرض جميع المشاريع - كلية الفنون التطبيقية</title>
 </head>
 <body>
-<h1>Show All Data</h1>
+<h1>Accept Projects</h1>
 <table class="table table-dark table-striped">
     <thead>
     <tr>
@@ -61,7 +61,8 @@ if (isset($_GET['id']) && isset($_GET['project_name']))
     </thead>
     <tbody>
     <?php
-    $projects = mysqli_query($mysqli, "SELECT * FROM uplode_project");
+    $dr = $_SESSION['dr_name'];
+    $projects = mysqli_query($mysqli, "SELECT * FROM uplode_project WHERE `dr_name`='$dr'");
     ?>
     <?php
     foreach ($projects as $project)
@@ -77,9 +78,10 @@ if (isset($_GET['id']) && isset($_GET['project_name']))
         <td>
             <form action="" method="get">
             <a class="btn btn-info" href="publish.php<?php echo "?id=".$project['id']."&project_name=".$project['project_name']
-            ."&dr_name=".$project['dr_name']."&description=".$project['description']."&image=".$project['image']."&std_name=".$project['std_name']?>" role="button">Publish</a> <br><br>
+            ."&dr_name=".$project['dr_name']."&description=".$project['description']."&image=".$project['image']."&std_name=".$project['std_name']?>"
+               onclick="if(!confirm('Do you want delete project ?'))return false;" role="button">Publish</a> <br><br>
             <a class="btn btn-danger" href="publish.php<?php echo "?id=".$project['id']."&delete=delete"?>"
-               role="button">Delete</a>
+               role="button" onclick="if(!confirm('Do you want delete project ?'))return false;">Delete</a>
             </form>
         </td>
         <?php }?>

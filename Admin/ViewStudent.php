@@ -4,7 +4,7 @@ require_once '../'.link;
 require_once  "../".functions."Validate.php";
 $mysqli = require_once "../".functions.'db.php';
 
-if(isset($_SESSION['dr_email']))
+if(isset($_SESSION['email_admin']))
 {
     require_once "../" . navbar;
 }

@@ -47,33 +47,60 @@ if (isset($_POST['visitor']))
     header("location: ".homepage."?=visitor");
 }
 
+if (isset($_POST['signup']))
+{
+    header("location: ".signUp);
+}
+
+
 if (isset($_POST['submit']))
 {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $_SESSION['email_old'] = $email;
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
     if (checkEmpty($email) && checkEmpty($password))
     {
         if(ValidateEmail($email))
         {
+            // Srudent
             $sql = sprintf("SELECT * FROM student
                                        WHERE std_email='%s'",
                 $mysqli->real_escape_string($_POST["email"]));
             $result = $mysqli->query($sql);
             $student = $result->fetch_assoc();
 
+            // Doctor
             $sql2 = sprintf("SELECT * FROM doctor
                                        WHERE dr_email='%s'",
                 $mysqli->real_escape_string($_POST["email"]));
             $result = $mysqli->query($sql2);
             $doctor = $result->fetch_assoc();
 
+            // Admins
+            $sql3 = sprintf("SELECT * FROM admins
+                                       WHERE email='%s'",
+                $mysqli->real_escape_string($_POST["email"]));
+            $result = $mysqli->query($sql3);
+            $admin = $result->fetch_assoc();
+            if ($admin) {
+                if (password_verify($password, $admin['password'])) {
+                    $_SESSION['email_admin'] = $admin['email'];
+                    $_SESSION['id_admin'] = $admin['id'];
+                    sleep(1.2);
+                    header("location: ".homepage."?id=".$_SESSION['id_admin']."&admin");
+                } else {
+                    $not_exist_email = 'Failed E-mail or password please try again ';
+                }
+            } else {
+                $not_exist_email = 'Sorry this E-mail not exists ';
+            }
+
+
             if ($doctor) {
                 if (password_verify($password, $doctor['dr_password'])) {
                     $_SESSION['dr_email'] = $doctor['dr_email'];
-                    $_SESSION['dr_Firstname'] = $doctor['dr_Firstname'];
-                    $_SESSION['dr_Lastname'] = $doctor['dr_Lastname'];
-                    $_SESSION['dr_name'] = $doctor['dr_Firstname'].$doctor['dr_Lastname'];
+                    $_SESSION['dr_name'] = $doctor['dr_Firstname'];
                     $_SESSION['dr_id'] = $doctor['dr_id'];
                     sleep(1.2);
                     header("location: ".homepage."?id=".$_SESSION['dr_id']."&doctor=".$_SESSION['dr_name']);
@@ -138,7 +165,9 @@ if (isset($_POST['submit']))
 
         </label>
         <input class="register_button" name="submit" type="submit" value="Log in" style="border-radius: 50px;">
-        <input class="register_button" name="visitor" type="submit" value="Visitor" style="background: #212529;border-radius: 50px;">
+<!--        <input class="register_button" name="visitor" type="submit" value="Visitor" style="background: #212529;border-radius: 50px;">-->
+        <input class="register_button" name="signup" type="submit" value="Sign up" style="width: 120px;border: none;border-radius: 50px;padding: 10px 20px; margin-right: -2px;background: #212529">
+        <input class="register_button" name="visitor" type="submit" value="Visitor" style="width: 120px;border: none;border-radius: 50px;padding: 10px 20px ;margin-right: -35px;background: #212529">
     </form>
 </div>
 </body>

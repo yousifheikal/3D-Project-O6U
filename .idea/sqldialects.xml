@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/Admin/AddStudent.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/Admin/ViewStudent.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/Admin/ViewVisitor.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/Admin/addadmins.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/homepage/homepage.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/login/login.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/navbar/navbar.php" dialect="GenericSQL" />

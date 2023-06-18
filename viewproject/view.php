@@ -4,7 +4,7 @@ require_once '../'.link;
 require_once  "../".functions."Validate.php";
 $mysqli = require_once "../".functions.'db.php';
 
-if(isset($_SESSION['std_email']) || isset($_SESSION['dr_email']) || isset($_SESSION['visitor']))
+if(isset($_SESSION['email_admin']) || isset($_SESSION['std_email']) || isset($_SESSION['dr_email']) || isset($_SESSION['visitor']))
 {
     include "../".navbar;
 }
@@ -51,7 +51,7 @@ if ($_GET['project_name'] == 'Interior Design')
                         <h3 style="padding-left: 5px;">Click her to see all projects <?php echo ucfirst($_SESSION['std_Firstname']);?></h3>
                     <?php }?>
                     <?php if (isset($_SESSION['dr_name'])){?>
-                        <h4 style="padding-left: 5px;">Click her to see all projects <?php echo "Dr: ".ucfirst($_SESSION['dr_Firstname'])?></h4>
+                        <h4 style="padding-left: 5px;">Click her to see all projects <?php echo "Dr: ".ucfirst($_SESSION['dr_name'])?></h4>
                     <?php }?>
                     <div style="padding-left: 150px">
                         <a href="#project" style="text-decoration: none">
@@ -135,7 +135,7 @@ if ($_GET['project_name'] == 'advertising')
                             <h3 style="padding-left: 5px;">Click her to see all projects <?php echo ucfirst($_SESSION['std_Firstname']);?></h3>
                         <?php }?>
                         <?php if (isset($_SESSION['dr_name'])){?>
-                            <h4 style="padding-left: 5px;">Click her to see all projects <?php echo "Dr: ".ucfirst($_SESSION['dr_Firstname'])?></h4>
+                            <h4 style="padding-left: 5px;">Click her to see all projects <?php echo "Dr: ".ucfirst($_SESSION['dr_name'])?></h4>
                         <?php }?>
                         <div style="padding-left: 150px">
                             <a href="#project" style="text-decoration: none">
@@ -218,7 +218,7 @@ if ($_GET['project_name'] == 'Cinema and photography')
                             <h3 style="padding-left: 5px;">Click her to see all projects <?php echo ucfirst($_SESSION['std_Firstname']);?></h3>
                         <?php }?>
                         <?php if (isset($_SESSION['dr_name'])){?>
-                            <h4 style="padding-left: 5px;">Click her to see all projects <?php echo "Dr: ".ucfirst($_SESSION['dr_Firstname'])?></h4>
+                            <h4 style="padding-left: 5px;">Click her to see all projects <?php echo "Dr: ".ucfirst($_SESSION['dr_name'])?></h4>
                         <?php }?>
                         <div style="padding-left: 150px">
                             <a href="#project" style="text-decoration: none">
@@ -303,7 +303,7 @@ if ($_GET['project_name'] == 'Products design')
                             <h3 style="padding-left: 5px;">Click her to see all projects <?php echo ucfirst($_SESSION['std_Firstname']);?></h3>
                         <?php }?>
                         <?php if (isset($_SESSION['dr_name'])){?>
-                            <h4 style="padding-left: 5px;">Click her to see all projects <?php echo "Dr: ".ucfirst($_SESSION['dr_Firstname'])?></h4>
+                            <h4 style="padding-left: 5px;">Click her to see all projects <?php echo "Dr: ".ucfirst($_SESSION['dr_name'])?></h4>
                         <?php }?>
                         <div style="padding-left: 150px">
                             <a href="#project" style="text-decoration: none">

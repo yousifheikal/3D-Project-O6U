@@ -4,41 +4,37 @@ require_once '../'.link;
 require_once  "../".functions."Validate.php";
 $mysqli = require_once "../".functions.'db.php';
 
-if(isset($_SESSION['email_admin']))
-{
-    require_once "../" . navbar;
-}
-else
-{
-    header("location: ".login);
-}
-?>
+//if(isset($_SESSION['dr_email']))
+//{
+//    require_once "../" . navbar;
+//}
+//else
+//{
+//    header("location: ".login);
+//}
+//?>
 
 
 <?php
 
 if(isset($_POST['submit']))
 {
-    $dr_Firstname = filter_input(INPUT_POST, 'first_Name',FILTER_SANITIZE_SPECIAL_CHARS);
-    $dr_email = filter_input(INPUT_POST, 'email',FILTER_SANITIZE_EMAIL);
-    $dr_password = filter_input(INPUT_POST, 'password',FILTER_SANITIZE_SPECIAL_CHARS);
-    $dr_phone = filter_input(INPUT_POST, 'phone',FILTER_SANITIZE_SPECIAL_CHARS);
-    $dr_address = filter_input(INPUT_POST, 'address',FILTER_SANITIZE_SPECIAL_CHARS);
-    $newPassword = password_hash($dr_password, PASSWORD_DEFAULT);
+    $email = filter_input(INPUT_POST, 'email',FILTER_SANITIZE_EMAIL);
+    $password = filter_input(INPUT_POST, 'password',FILTER_SANITIZE_SPECIAL_CHARS);
+    $newPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    if(checkEmpty($dr_Firstname) && checkEmpty($dr_email) && checkEmpty($dr_password))
+    if(checkEmpty($email) && checkEmpty($password))
     {
 
-        $sql = "INSERT INTO doctor (dr_Firstname, dr_email, dr_password, dr_phone, dr_address)
-                VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO admins (email, password)
+                VALUES (?, ?)";
         $stmt = $mysqli->stmt_init();
         if(!$stmt->prepare($sql)){
             die("SQL error : ".$mysqli->error);
         }
-        $stmt->bind_param('sssss', $dr_Firstname, $dr_email, $newPassword, $dr_phone, $dr_address);
+        $stmt->bind_param('ss', $email, $newPassword);
         if($stmt->execute()){
             $success_msg = "Data Inserted in DB";
-//            header("location:".homepage);
         }
     }
     else
@@ -94,12 +90,6 @@ if(isset($_POST['submit']))
             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Name</label>
-                    <input type="text" name="first_Name" placeholder="Name" minlength="3" maxlength="25" class="form-control" id="exampleInputPassword1">
-                </div>
-
-
-                <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">E-mail</label>
                     <input type="email" name="email" placeholder="E-mail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
@@ -107,16 +97,6 @@ if(isset($_POST['submit']))
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" name="password"  minlength="11" maxlength="50" placeholder="Password" class="form-control" id="exampleInputPassword1">
-                </div>
-
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Phone</label>
-                    <input type="text" name="phone" placeholder="Phone" maxlength="25" class="form-control" id="exampleInputPassword1">
-                </div>
-
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Address</label>
-                    <input type="text" name="address" maxlength="255" placeholder="Address" class="form-control" id="exampleInputPassword1">
                 </div>
 
                 <button type="submit" name="submit" class="btn btn-warning text-white">Insert</button>

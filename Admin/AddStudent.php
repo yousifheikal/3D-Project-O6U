@@ -4,15 +4,15 @@ require_once '../'.link;
 require_once  "../".functions."Validate.php";
 $mysqli = require_once "../".functions.'db.php';
 
-if(isset($_SESSION['dr_email']))
-{
-    require_once "../" . navbar;
-
-}
-else
-{
-    header("location: ".login);
-}
+//if(isset($_SESSION['email_admin']))
+//{
+////    require_once "../" . navbar;
+//
+//}
+//else
+//{
+//    header("location: ".login);
+//}
 ?>
 
 
@@ -31,7 +31,7 @@ if(isset($_POST['submit']))
       $new_pass = password_hash($password, PASSWORD_DEFAULT);
     if(checkEmpty($Firstname) && checkEmpty($Lastname) && checkEmpty($email) && checkEmpty($password))
     {
-        $sql = "INSERT INTO student (std_specialization, std_Firstname, std_Lastname, std_email, std_password, std_phone, std_address)
+        $sql = "INSERT INTO signup (std_specialization, std_Firstname, std_Lastname, std_email, std_password, std_phone, std_address)
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $mysqli->stmt_init();
         if(!$stmt->prepare($sql)){
@@ -96,7 +96,8 @@ if(isset($_POST['submit']))
 
                 <label for="exampleInputPassword1" class="form-label">specialization</label>
                 <select class="form-select" aria-label="Default select example" name="select">
-                        <option value="Cinema and photography">cinema and photography</option>
+                    <option selected disabled>--Select--</option>
+                    <option value="Cinema and photography">cinema and photography</option>
                         <option value="Products design">products design</option>
                         <option value="Interior design">interior design</option>
                         <option value="Advertising">advertising</option>

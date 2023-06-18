@@ -113,6 +113,7 @@ if (isset($_POST['submit']))
 
     <label for="exampleInputPassword1" class="form-label">specialization</label>
     <select class="form-select" aria-label="Default select example" name="select">
+        <option selected disabled>--Select--</option>
         <option value="Cinema And Photography">cinema and photography</option>
         <option value="Products Design">products design</option>
         <option value="Interior Design">interior design</option>
@@ -131,10 +132,18 @@ if (isset($_POST['submit']))
         <label for="floatingTextarea2">Description</label>
     </div><br>
 
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Dr Name: </label>
-        <input class="form-control" type="text" name="dr_name" id="dr_name" required value="" placeholder="dr_name">
-    </div><br>
+<!--    <div class="mb-3">-->
+<!--        <label for="exampleInputPassword1" class="form-label">Dr Name: </label>-->
+<!--        <input class="form-control" type="text" name="dr_name" id="dr_name" required value="" placeholder="dr_name">-->
+<!--    </div><br>-->
+
+
+    <label for="exampleInputPassword1" class="form-label">Dr Name: </label>
+    <select class="form-select" aria-label="Default select example" name="dr_name">
+        <option selected disabled>--Select--</option>
+        <option value="rehab">rehab</option>
+        <option value="amira">amira</option>
+    </select><br>
 
 
     <br>
